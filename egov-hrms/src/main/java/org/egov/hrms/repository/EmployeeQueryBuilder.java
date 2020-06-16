@@ -50,7 +50,7 @@ public class EmployeeQueryBuilder {
 		if(!CollectionUtils.isEmpty(criteria.getCodes())){
 			List<String> codes = criteria.getCodes().stream().map(String::toLowerCase).collect(Collectors.toList());
 			builder.append(" and lower(employee.code) IN (").append(createQuery(codes)).append(")");
-			addToPreparedStatement(preparedStmtList, criteria.getCodes());
+			addToPreparedStatement(preparedStmtList, codes);
 
 		}
 		if(!CollectionUtils.isEmpty(criteria.getIds())){
